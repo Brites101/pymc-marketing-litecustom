@@ -162,7 +162,9 @@ def logistic_saturation(x, lam: Union[npt.NDArray[np.float_], float] = 0.5):
     tensor
         Transformed tensor.
     """
-    return (1 - pt.exp(-lam * x)) / (1 + pt.exp(-lam * x))
+    #return (1 - pt.exp(-lam * x)) / (1 + pt.exp(-lam * x))
+    #ORIGINAL -> 1 - np.exp(-x / (dr * m))
+    return  1 - pt.exp(-x / lam)
 
 
 def tanh_saturation(x, b: float = 0.5, c: float = 0.5):
